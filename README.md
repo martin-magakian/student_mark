@@ -17,8 +17,7 @@ This piece of software attempt to make my life easier.
 How to use
 ===
 
-1 - Create a docx template
---
+###  1 - Create a docx template
 ![docx template](https://raw.github.com/martin-magakian/student_mark/master/README_src/docx_template.png)
 
 Available tag:
@@ -28,39 +27,56 @@ Available tag:
 * {name}
 * {mark}
 * {#marks}<br />
-     {whatEverTag_4_point}<br />
-     {whatEverTag}<br />
+    &nbsp;&nbsp;&nbsp;{whatEverTag_4_point}<br />
+    &nbsp;&nbsp;&nbsp;{whatEverTag}<br />
   {/marks}
 
 Between the tags {#marks} and {/marks} is the fine description of the mark.
 If you create a tag {foo} you have to create an other tag {foo_4_point} where "_4_point" describe the maximum mark of 4.
 
 
-2 - configure:
----
-edit the Config.js file
+### 2 - configure:
+rename and edit Config.sample.js into Config.js
 
-3 - install dependency
----
+### 3 - install dependency
+```
 $ npm install
+```
 
 7zip module need dependency at the OS level:
 https://www.npmjs.com/package/node-7z-esf
 
 For Mac OSX:
+```
 $ brew install p7zip
+```
 
 
-4 - start webserver:
----
-$ node index.js --path "/path/to/exam/" --date "2016-10-11" --template "/path/to/template.docx" --subject "Android" --groupe 5
+### 4 - start webserver:
+```
+node index.js --path "/path/to/exam/" --date "2016-10-11" --template "/path/to/template.docx" --subject "Android" --groupe 5
+```
 
 Exam in "/path/to/exam/" should look like this:
 * oneStudent@domain.com.zip
 * otherStudent@domain.com.txt
 
 
-5 - Open Web UI
----
+### 5 - Open Web UI
 ![Web UI](https://raw.github.com/martin-magakian/student_mark/master/README_src/UI.png)
+
+
+
+Contact
+=========
+Developed by Martin Magakian dev.martin.magakian@gmail.com<br />
+by [Anomaly Detection](https://anomaly.io)
+
+
+
+
+License
+=========
+MIT License (MIT)
+
 
