@@ -1,0 +1,47 @@
+extends layout
+
+
+mixin userField(user,userIndex,marks,classId)
+	h2 #{(userIndex+1)+ " - "+ user.email}
+	h3#mark_total 0/20
+	input( type='checkbox' name='absent[]' class='absent #{classId}')
+	div.absentText absent
+	div.actionRow
+		button.createdocx(type="button", class="btn btn-primary btn-sm #{classId}") create docx
+		button.sendmark(type="button", class="btn btn-primary btn-sm #{classId}") send mark
+	div.row(id="")
+		each mark, index in marks
+			div.col-sm-2.markentry
+				div.subject #{index}:
+				div.umark
+					<select name="#{index}" class='#{classId}'>
+					- for (i = 0; i <= mark; i++) { 
+						<option value="#{i}">#{i}</option>
+					- }
+					</select>
+				div.total / #{mark}
+		div.col-sm-2.markentry
+			div.subject Total:
+			div.umarktotal
+				<select name="marks[]" class='#{classId}'>
+				- for (i = 0; i <= 20; i++) { 
+					<option value="#{i}">#{i}</option>
+				- }
+				</select>
+			div.total / 20
+
+block content
+	script.
+		var local_users =!{JSON.stringify(users)};
+	div.actionRow
+		button#all_createdocx(type="button", class="btn btn-primary btn-lg") create docx
+		button#all_sendmarks(type="button", class="btn btn-primary btn-lg") send marks (preview)
+
+	- var current = 0;
+	each user, userIndex in users
+		- var type = (current++ % 2) ? "p1" : "p2";
+		- var classId = "user_row_"+(userIndex);
+		div(class="user user_#{type}" id="#{classId}")
+			+userField(user,(userIndex),marks, classId)
+			
+		

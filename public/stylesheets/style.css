@@ -1,0 +1,54 @@
+body {
+  padding: 50px;
+  font: 14px Helvetica, "Lucida Grande",  Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.actionRow{
+	padding-top: 20px;
+}
+.umark, .umarktotal{
+	float: left;
+}
+
+.markentry{
+	padding-top: 30px;
+}
+
+.total{
+	float: left;
+	padding-left: 10px;
+}
+
+.user{
+	padding: 20px;
+	padding-bottom: 40px;
+}
+
+.user_p1{
+	background-color: #e3bebe;
+}
+
+.user_p2{
+	background-color: #e9cfcf;
+}
+
+.user_p1_ok{
+	background-color: #dce8f8;
+}
+
+.user_p2_ok{
+	background-color: #e6eef8;
+}
+
+.absent {
+	float: left;
+}
+
+.btn{
+	margin-right: 20px;
+	margin-bottom: 0px;
+}
