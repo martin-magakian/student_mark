@@ -23,7 +23,7 @@ router.post('/createDocx', function(req, res) {
 	var data = req.body;
 	var user = hbFiles.getUser(data.userIndex);
 
-	docxMaker.createDocx(user, data.mark, data.marks);
+	docxMaker.createDocx(user, data.mark, data.marks, data.absent);
     res.send("OK");
 });
 

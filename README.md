@@ -73,8 +73,6 @@ Developed by Martin Magakian dev.martin.magakian@gmail.com<br />
 by [Anomaly Detection](https://anomaly.io)
 
 
-
-
 License
 =========
 MIT License (MIT)

@@ -66,26 +66,36 @@ DocxMaker.prototype.decompose = function (marks) {
     return decompose;
 }
 
-DocxMaker.prototype.markTemplate = function (marks){
+DocxMaker.prototype.markTemplate = function (marks, isAbsent){
     var tags = this.getTags();
     var all = {};
+    var abs = isAbsent;
     _.each(Object.keys(marks), function(key){
         var value = marks[key];
         var total = tags[key];
-        all[key] = value;
+        if(abs){
+            all[key] = "Absent";
+        }else{
+            all[key] = value;
+        }
         all[key+"_"+total+"_point"] = total;
     });
     return all;
 }
 
-DocxMaker.prototype.createDocx = function (user, mark, marks) {
+DocxMaker.prototype.createDocx = function (user, mark, marks, isAbsent) {
     var template = this.getTemplateDocx();
+
+    var finalMark = mark;
+    if(isAbsent){
+        finalMark = "Absent";
+    }
     template.setData({
         "name": user.cutName,
         "surname": user.cutSurname,
-        "mark": mark,
+        "mark": finalMark,
         "date": this.date,
-        "marks": this.markTemplate(marks)
+        "marks": this.markTemplate(marks, isAbsent)
     });
     template.render();
     var buf = template.getZip().generate({type:"nodebuffer"});

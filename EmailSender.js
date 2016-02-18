@@ -36,7 +36,8 @@ EmailSender.prototype.defaultTransporter = function() {
 }
 
 EmailSender.prototype.templateMarkSummary= function(userWithMark, subject, date, groupe){
-    var body = "Bonjour,\r\nVoici les notes de la dernière évaluation du groupe"+groupe+"\r\n\r\n";
+    var body = "Bonjour,\r\nVoici les notes de la dernière évaluation du groupe"+groupe+"\r\n";
+    body += "En pièce jointe les docx individuel\r\n\r\n";
     body += "Date: "+date+"\r\n";
     body += "Matière: "+subject+"\r\n";
     body += "Groupe: "+groupe+"\r\n\r\n";
