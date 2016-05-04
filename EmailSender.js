@@ -87,14 +87,13 @@ EmailSender.prototype.sendMark = function(mark, isAbsent, subject, date, onSucce
     }, this.failToSend(to, onSuccess, onFail));
 }
 
-EmailSender.prototype.sendMarkSummary = function (userWithMark, attachmentPath, attachmentName, subject, date,  groupe, onSuccess, onFail) {
+EmailSender.prototype.sendMarkSummary = function (userWithMark, attachmentPath, subject, date,  groupe, onSuccess, onFail) {
     var transporter = this.defaultTransporter();
     var to = this.sendTo;
     log.info("sending to "+to+"...");
     var r = transporter.sendMail({
         attachments: [{
-            filename: attachmentName,
-            path: attachmentPath
+            path: attachmentPath,
         }],
         subject: 'Notes '+subject+' - Groupe'+groupe,
         text:   this.templateMarkSummary(userWithMark, subject, date, groupe)

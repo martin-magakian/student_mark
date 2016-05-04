@@ -58,8 +58,8 @@ router.post('/sendMarkSummary', function(req, res) {
 	assert(totalExam == totalDocx,    "Different number of exam (["+totalExam+"] .zip file) and marks (["+totalDocx+"].docx)");
 
 	var attachmentPath = zip[1];
-	var attachmentName = zip[2].substring(2); // remove the _;
-    new EmailSender(config.summary_send_to).sendMarkSummary(data, attachmentPath, attachmentName,  argv.subject, argv.date,  argv.groupe, function(){
+
+    new EmailSender(config.summary_send_to).sendMarkSummary(data, attachmentPath,  argv.subject, argv.date,  argv.groupe, function(){
     	res.send("OK");
     },function(msg){
     	res.status(500).send(msg);
